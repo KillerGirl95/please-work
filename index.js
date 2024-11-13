@@ -4,14 +4,15 @@ const cors = require('cors');
 const { default: mongoose } = require('mongoose');
 const crud_router = require('./controller/crud')
 const login_router = require('./controller/Login')
+// const Schema = require("./model/schema")
 
 // Mongo DB Connections
-mongoose.connect("mongodb://localhost:27017/", {
+mongoose.connect("mongodb://localhost:27017/please-work", {
     useNewUrlParser: true,
     useUnifiedTopology: true,
-}).then(response=>{
+}).then(response => {
     console.log('MongoDB Connection Succeeded.')
-}).catch(error=>{
+}).catch(error => {
     console.log('Error in DB connection: ' + error)
 });
 
@@ -27,8 +28,8 @@ app.use(login_router)
 
 // Connection
 
-app.listen(3000, ()=>{
-    console.log('App running in port: '+3000)
+app.listen(3000, () => {
+    console.log('App running in port: ' + 3000)
 })
 
 

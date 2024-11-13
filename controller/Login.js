@@ -10,7 +10,7 @@ router.post('/login', async (req, res) => {
     const { username, password } = req.body;
     try {
         const user = await User.findOne({ username });
-        if (!user) return res.status(401).json({ message: 'Invalid username' }); //find user 
+        if (!user) return res.status(401).json({ message: `username not found: ${username}` }); //find user 
 
         const isMatch = await user.comparePassword(password);
         if (!isMatch) { return res.status(401).json({ message: 'Invalid password' }); } //compare entered pwd with hashed pwd 

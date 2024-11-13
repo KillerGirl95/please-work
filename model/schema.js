@@ -7,7 +7,7 @@ const schema = new mongoose.Schema({
     password: { type: String, required: "lets see pwd" },
     title: { type: String },
     author: { type: String },
-    publicationYear: { type: Number, required: true },
+    publicationYear: { type: Number},
     available: { type: Boolean, default: true },
 },
     { timestamps: true }
