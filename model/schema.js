@@ -3,10 +3,10 @@ const bcrypt = require('bcrypt');
 
 const schema = new mongoose.Schema({
     name: { type: String, required: "lets see name" },
-    email: { type: String, match: [/.+\@.+\.+/, "invalid email format"], unique: true },
+    email: { type: String, match: [/.+\@.+\.+/, "invalid email format"], unique: true , required: true},
     password: { type: String, required: "lets see pwd" },
-    title: { type: String, required: true },
-    author: { type: String, required: true },
+    title: { type: String },
+    author: { type: String },
     publicationYear: { type: Number, required: true },
     available: { type: Boolean, default: true },
 },
