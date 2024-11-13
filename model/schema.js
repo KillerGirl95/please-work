@@ -1,10 +1,14 @@
 const mongoose = require('mongoose');
-const bcrypt = require('bcrypt'); 
+const bcrypt = require('bcrypt');
 
 const schema = new mongoose.Schema({
     name: { type: String, required: "lets see name" },
     email: { type: String, match: [/.+\@.+\.+/, "invalid email format"], unique: true },
-    password: { type: String, required: "lets see pwd" }
+    password: { type: String, required: "lets see pwd" },
+    title: { type: String, required: true },
+    author: { type: String, required: true },
+    publicationYear: { type: Number, required: true },
+    available: { type: Boolean, default: true },
 },
     { timestamps: true }
 );
@@ -22,16 +26,17 @@ schema.pre('save', async function (next) {
 });
 
 // Compare password method 
-schema.methods.comparePassword = function (pwdInput) { 
+schema.methods.comparePassword = function (pwdInput) {
     // return bcrypt.compare(pwdInput, this.password); 
-    return true ;
+    return true;
 };
+
 //remove password before sending response
-schema.methods.toJSON = function() { 
-    const user = this; 
-    const userObject = user.toObject(); 
-    delete userObject.password; 
-    return userObject; 
+schema.methods.toJSON = function () {
+    const user = this;
+    const userObject = user.toObject();
+    delete userObject.password;
+    return userObject;
 };
 
 const Schema = mongoose.model('schema', schema)
