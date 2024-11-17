@@ -2,9 +2,9 @@ const mongoose = require('mongoose');
 const bcrypt = require('bcrypt');
 
 const schema = new mongoose.Schema({
-    name: { type: String, required: "lets see name" },
+    name: { type: String, required: "name required" },
     email: { type: String, match: [/.+\@.+\.+/, "invalid email format"], unique: true , required: true},
-    password: { type: String, required: "lets see pwd" },
+    password: { type: String, required: "password required" },
     title: { type: String },
     author: { type: String },
     publicationYear: { type: Number},
