@@ -27,8 +27,7 @@ schema.pre('save', async function (next) {
 
 // Compare password method 
 schema.methods.comparePassword = function (pwdInput) {
-    // return bcrypt.compare(pwdInput, this.password); 
-    return true;
+    return bcrypt.compare(pwdInput, this.password);
 };
 
 //remove password before sending response

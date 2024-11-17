@@ -7,10 +7,7 @@ const login_router = require('./controller/Login')
 // const Schema = require("./model/schema")
 
 // Mongo DB Connections
-mongoose.connect("mongodb://localhost:27017/please-work", {
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
-}).then(response => {
+mongoose.connect("mongodb://127.0.0.1:27017/please-work").then(response => {
     console.log('MongoDB Connection Succeeded.')
 }).catch(error => {
     console.log('Error in DB connection: ' + error)
