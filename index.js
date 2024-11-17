@@ -4,7 +4,6 @@ const cors = require('cors');
 const { default: mongoose } = require('mongoose');
 const crud_router = require('./controller/crud')
 const login_router = require('./controller/Login')
-// const Schema = require("./model/schema")
 
 // Mongo DB Connections
 mongoose.connect("mongodb://127.0.0.1:27017/please-work").then(response => {
