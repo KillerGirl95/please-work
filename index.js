@@ -12,18 +12,15 @@ mongoose.connect("mongodb+srv://bla:bla@cluster0.wbdix.mongodb.net/library?retry
     console.log('Error in DB connection: ' + error)
 });
 
-
 // Middleware Connections
 app.use(cors())
 app.use(express.json())
-
 
 // Routes
 app.use(crud_router)
 app.use(login_router)
 
 // Connection
-
 app.listen(3000, () => {
     console.log('App running in port: ' + 3000)
 })

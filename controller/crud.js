@@ -14,7 +14,7 @@ router.get('/', Authorization, async(req, res) => {
 })
 
 // Create a new crud
-router.post('/', async (req, res) => {
+router.post('/', Authorization, async (req, res) => {
     try {
         let crud = new Schema(req.body);
         crud = await crud.save();
