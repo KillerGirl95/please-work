@@ -11,7 +11,7 @@ router.post('/login', async (req, res) => {
     try {
         // find user 
         const user = await Schema.findOne({ name });
-        if (!user) return res.status(401).json({ message: `username not found: ${username}` }); //find user 
+        if (!user) return res.status(401).json({ message: `username not found: ${name}` }); //find user 
 
         // compare password 
         const isMatch = await user.comparePassword(password);
