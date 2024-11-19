@@ -14,7 +14,7 @@ router.get('/', Authorization, async(req, res) => {
 })
 
 // Create a new crud
-router.post('/', Authorization, async (req, res) => {
+router.post('/', async (req, res) => {
     try {
         let crud = new Schema(req.body);
         crud = await crud.save();
@@ -53,6 +53,4 @@ router.delete('/:id', Authorization, async (req, res) => {
         res.status(500).send(error.message)
     }
 })
-
-
-module.exports = router
+module.exports = router;
