@@ -4,6 +4,7 @@ const cors = require('cors');
 const { default: mongoose } = require('mongoose');
 const crud_router = require('./controller/crud')
 const login_router = require('./controller/Login')
+const signup_router = require('./controller/Signup')
 
 // Mongo DB Connections
 mongoose.connect("mongodb+srv://bla:bla@cluster0.wbdix.mongodb.net/library?retryWrites=true&w=majority").then(response => {
@@ -19,6 +20,9 @@ app.use(express.json())
 // Routes
 app.use(crud_router)
 app.use(login_router)
+app.use(signup_router)
+
+
 
 // Connection
 app.listen(3000, () => {
