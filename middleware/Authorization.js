@@ -1,7 +1,7 @@
 const jwt = require('jsonwebtoken');
 const SECRET_KEY = 'bla';
 
-function Authorization(req, res, next) {
+exports.Authorization= function(req, res, next) {
     const authorization = req.headers.authorization;
     if (!authorization) {
         return res.status(401).json({
@@ -39,4 +39,4 @@ function Authorization(req, res, next) {
     }
 }
 
-module.exports = Authorization
+// exports.Authorization
