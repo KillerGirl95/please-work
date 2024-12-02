@@ -27,11 +27,11 @@ exports.signout = async (req, res) => {
 }
 
 exports.signin= async (req, res) => {
-    const { name, password } = req.body;
+    const { email, password } = req.body;
     try {
         // find user 
-        const user = await Schema.findOne({ name });
-        if (!user) return res.status(401).json({ message: `username not found` }); //find user 
+        const user = await Schema.findOne({ email });
+        if (!user) return res.status(401).json({ message: `email not found` }); //find user 
 
         // compare password 
         const isMatch = await user.comparePassword(password);

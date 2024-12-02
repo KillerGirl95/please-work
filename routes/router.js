@@ -1,10 +1,11 @@
 const express = require('express'); 
 const { getall, Enter, getById, update, deleteById }= require('../controller/crud')
-const { signin, signout }= require('../controller/Sign');
+const { signin, signout, signup }= require('../controller/Sign');
 const { Authorization } = require('../middleware/Authorization');
 
 const router = express.Router();
 
+router.post('/signup',signup)
 router.post('/signin',signin)
 router.get('/signout',signout)
 router.get('/',getall)

@@ -16,7 +16,7 @@ mongoose.connect("mongodb+srv://bla:bla@cluster0.wbdix.mongodb.net/library?retry
 app.use(cors())
 app.use(express.json())
 
-// router connections 
+// router 
 app.use(router)
 
 
