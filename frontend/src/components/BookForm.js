@@ -7,8 +7,10 @@ const BookForm = () => {
     const { user } = useAuthContext()
 
     const [title, setTitle] = useState('')
-    const [load, setLoad] = useState('')
-    const [reps, setReps] = useState('')
+    const [author, setAuthor] = useState('')
+    const [price, setPrice] = useState('')
+    const [yearPublished, setyearPublished] = useState('')
+
     const [error, setError] = useState(null)
     const [emptyFields, setEmptyFields] = useState([])
 
@@ -20,9 +22,9 @@ const BookForm = () => {
             return
         }
 
-        const workout = { title, load, reps }
+        const workout = { title, author, price, yearPublished }
 
-        const response = await fetch('/api/Book', {
+        const response = await fetch('/', {
             method: 'POST',
             body: JSON.stringify(workout),
             headers: {
@@ -38,19 +40,20 @@ const BookForm = () => {
         }
         if (response.ok) {
             setTitle('')
-            setLoad('')
-            setReps('')
+            setAuthor('')
+            setPrice('')
+            setyearPublished('')
             setError(null)
             setEmptyFields([])
-            dispatch({ type: 'CREATE_WORKOUT', payload: json })
+            dispatch({ type: 'CREATE_BOOK', payload: json })
         }
     }
 
     return (
         <form className="create" onSubmit={handleSubmit}>
-            <h3>Add a New Workout</h3>
+            <h3>Add a New Book</h3>
 
-            <label>Excersize Title:</label>
+            <label>Book Title :</label>
             <input
                 type="text"
                 onChange={(e) => setTitle(e.target.value)}
@@ -58,23 +61,30 @@ const BookForm = () => {
                 className={emptyFields.includes('title') ? 'error' : ''}
             />
 
-            <label>Load (in kg):</label>
+            <label>Author Name :</label>
             <input
-                type="number"
-                onChange={(e) => setLoad(e.target.value)}
-                value={load}
-                className={emptyFields.includes('load') ? 'error' : ''}
+                type="text"
+                onChange={(e) => setAuthor(e.target.value)}
+                value={author}
+                className={emptyFields.includes('author') ? 'error' : ''}
             />
 
-            <label>Reps:</label>
+            <label>Book Price :</label>
             <input
                 type="number"
-                onChange={(e) => setReps(e.target.value)}
-                value={reps}
-                className={emptyFields.includes('reps') ? 'error' : ''}
+                onChange={(e) => setPrice(e.target.value)}
+                value={price}
+                className={emptyFields.includes('price') ? 'error' : ''}
+            />
+            <label>Year Published :</label>
+            <input
+                type="number"
+                onChange={(e) => setyearPublished(e.target.value)}
+                value={yearPublished}
+                className={emptyFields.includes('yearPublished') ? 'error' : ''}
             />
 
-            <button>Add Workout</button>
+            <button>Add Book</button>
             {error && <div className="error">{error}</div>}
         </form>
     )

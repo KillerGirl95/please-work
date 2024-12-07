@@ -4,19 +4,19 @@ export const BooksContext = createContext()
 
 export const BooksReducer = (state, action) => {
     switch (action.type) {
-        case 'SET_BookS':
+        case 'SET_BOOK':
             return {
                 Books: action.payload
             }
-        case 'CREATE_Book':
+        case 'CREATE_BOOK':
             return {
                 Books: [action.payload, ...state.Books]
             }
-        case 'DELETE_Book':
+        case 'DELETE_BOOK':
             return {
                 Books: state.Books.filter((b) => b._id !== action.payload._id)
             }
-        case 'UPDATE_Book':
+        case 'UPDATE_BOOK':
             return {
                 Books: state.Books.map((book) =>
                     book._id === action.payload._id ? action.payload : book
@@ -29,7 +29,7 @@ export const BooksReducer = (state, action) => {
 
 export const BooksContextProvider = ({ children }) => {
     const [state, dispatch] = useReducer(BooksReducer, {
-        Books: null
+        Books: []       // init with empty array 
     })
 
     return (

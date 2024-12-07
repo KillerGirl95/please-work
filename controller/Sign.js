@@ -2,17 +2,22 @@ const jwt = require('jsonwebtoken');
 const User = require("../model/user");
 
 exports.signup= async (req, res) => {
-    console.log("Request received:", req.body);
     const { name, email, password } = req.body;
     try {
-        let crud = new User(req.body);
-        crud = await crud.save();
-        !crud
-            ? res.status(404).send("Document not found")
-            : res.status(200).json(crud);
+        let user = new User(req.body);
+        user = await user.save();
+        
+        const token = jwt.sign({ 
+            id: user._id, 
+            email: user.email 
+        }, process.env.SECRET_KEY, { expiresIn: '1h' });
+
+        res.status(200).json({ 
+            email: user.email, 
+            token 
+        });
     } catch (error) {
-        console.error("Error:", error);
-        res.status(500).send(error.message);
+        res.status(500).json({ error: error.message });
     }
 }
 
@@ -36,26 +41,23 @@ exports.signout = async (req, res) => {
 exports.signin= async (req, res) => {
     const { email, password } = req.body;
     try {
-        // find user 
         const user = await User.findOne({ email });
-        if (!user) return res.status(401).json({ message: `email not found` }); //find user 
+        if (!user) return res.status(401).json({ error: 'Email not found' }); 
 
-        // compare password 
         const isMatch = await user.comparePassword(password);
-        if (!isMatch) { return res.status(401).json({ message: 'Invalid password' }); } //compare entered pwd with hashed pwd 
+        if (!isMatch) return res.status(401).json({ error: 'Invalid password' }); 
 
-        // generate jwt token 
         const token = jwt.sign({ 
-                id: user._id, 
-                username: user.username 
-            },
-            process.env.SECRET_KEY, 
-            { expiresIn: '1h' }
-        );      //sign jwt
-        res.json({ token });
+            id: user._id, 
+            email: user.email 
+        }, process.env.SECRET_KEY, { expiresIn: '1h' });      
 
+        res.json({ 
+            email: user.email, 
+            token 
+        });
     } catch (error) {
-        res.status(500).send(error.message)
+        res.status(500).json({ error: error.message });
     }
 }
 

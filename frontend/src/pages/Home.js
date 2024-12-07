@@ -12,13 +12,13 @@ const Home = () => {
 
   useEffect(() => {
     const fetchBooks = async () => {
-      const response = await fetch('/api/Books', {
+      const response = await fetch('/', {
         headers: {'Authorization': `Bearer ${user.token}`},
       })
       const json = await response.json()
 
       if (response.ok) {
-        dispatch({type: 'SET_BookS', payload: json})
+        dispatch({type: 'SET_BOOK', payload: json})
       }
     }
 
