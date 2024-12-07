@@ -1,5 +1,5 @@
 const jwt = require('jsonwebtoken');
-const SECRET_KEY = 'bla';
+
 
 exports.Authorization= function(req, res, next) {
     const authorization = req.headers.authorization;
@@ -12,10 +12,10 @@ exports.Authorization= function(req, res, next) {
         const token = authorization.split('Bearer ')[1];
         if (!token) {
             return res.status(401).json({
-                message: 'Invalid Token Format'
+                message: 'Invalid Token Format' 
             })
         }
-        const decode = jwt.verify(token, SECRET_KEY);
+        const decode = jwt.verify(token, process.env.SECRET_KEY);
         req.user = decode
         next()
     } catch (error) {
