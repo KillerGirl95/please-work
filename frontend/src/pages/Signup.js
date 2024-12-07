@@ -11,19 +11,20 @@ const Signup = () => {
   const handleSubmit = async (e) => {
     e.preventDefault()
 
-    await signup(email, password)
+    await signup(name, email, password)
   }
 
   return (
     <form className="signup" onSubmit={handleSubmit}>
       <h3>Sign Up</h3>
       
-      <label>Email address:</label>
+      <label> Name:</label>
       <input 
         type="text" 
         onChange={(e) => setName(e.target.value)} 
         value={name} 
       />
+      <label>Email address:</label>
       <input 
         type="email" 
         onChange={(e) => setEmail(e.target.value)} 
