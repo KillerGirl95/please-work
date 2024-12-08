@@ -2,7 +2,7 @@
   "name": "frontend",
   "version": "0.1.0",
   "private": true,
-  "proxy":"https://please-work-9eji.onrender.com",
+  "proxy": "https://please-work-9eji.onrender.com",
   "dependencies": {
     "cra-template": "1.2.0",
     "date-fns": "^4.1.0",
@@ -34,5 +34,8 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "@babel/plugin-proposal-private-property-in-object": "^7.21.11"
   }
 }
