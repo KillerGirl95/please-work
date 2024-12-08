@@ -1,9 +1,7 @@
 import { useAuthContext } from './useAuthContext'
-import { useBookContext } from './useBookContext'
 
 export const useLogout = () => {
   const { dispatch } = useAuthContext()
-  const { dispatch: dispatchBooks } = useBookContext()
 
   const logout = () => {
     // remove user from storage
@@ -11,7 +9,6 @@ export const useLogout = () => {
 
     // dispatch logout action
     dispatch({ type: 'LOGOUT' })
-    dispatchBooks({ type: 'SET_BOOK', payload: null })
   }
 
   return { logout }

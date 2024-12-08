@@ -7,7 +7,7 @@ export const BooksReducer = (state, action) => {
         case 'SET_BOOK':
             console.log('SET_BOOK payload:', action.payload);
             return {
-                Books: Array.isArray(action.payload) ? action.payload : []
+                Books: action.payload
             }
         case 'CREATE_BOOK':
             return {

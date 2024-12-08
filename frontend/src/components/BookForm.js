@@ -24,7 +24,7 @@ const BookForm = () => {
 
         const workout = { title, author, price, yearPublished }
 
-        const response = await fetch('/', {
+        const response = await fetch('/api', {
             method: 'POST',
             body: JSON.stringify(workout),
             headers: {
@@ -88,9 +88,6 @@ const BookForm = () => {
             {error && <div className="error">{error}</div>}
         </form>
     )
-
-
-
 }
 
 export default BookForm
