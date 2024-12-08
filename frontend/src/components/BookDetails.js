@@ -54,16 +54,6 @@ const BookDetails = ({ Book }) => {
     }
   };
 
-  // return (
-  //   <div className="Book-details">
-  //     <h4>{Book.title}</h4>
-  //     <p><strong>Author : </strong>{Book.author}</p>
-  //     <p><strong>Price : </strong>{Book.price}</p>
-  //     <p><strong>Year Published : </strong>{Book.yearPublished}</p>
-  //     <p>{formatDistanceToNow(new Date(Book.createdAt), { addSuffix: true })}</p>
-  //     <span className="material-symbols-outlined" onClick={handleClick}>delete</span>
-  //   </div>
-  // )
   return (
     <div className="Book-details">
       {
