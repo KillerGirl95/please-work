@@ -14,6 +14,7 @@ exports.signup= async (req, res) => {
 
         res.status(200).json({ 
             email: user.email, 
+            name: user.name,
             token 
         });
     } catch (error) {
@@ -54,6 +55,7 @@ exports.signin= async (req, res) => {
 
         res.json({ 
             email: user.email, 
+            name: user.name,
             token 
         });
     } catch (error) {
