@@ -11,7 +11,7 @@ export const useLogout = () => {
 
     // dispatch logout action
     dispatch({ type: 'LOGOUT' })
-    dispatchBooks({ type: 'SET_BookS', payload: null })
+    dispatchBooks({ type: 'SET_BOOK', payload: null })
   }
 
   return { logout }

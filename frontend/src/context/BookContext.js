@@ -5,8 +5,9 @@ export const BooksContext = createContext()
 export const BooksReducer = (state, action) => {
     switch (action.type) {
         case 'SET_BOOK':
+            console.log('SET_BOOK payload:', action.payload);
             return {
-                Books: action.payload
+                Books: Array.isArray(action.payload) ? action.payload : []
             }
         case 'CREATE_BOOK':
             return {
