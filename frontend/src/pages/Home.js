@@ -1,12 +1,12 @@
 import { useEffect } from 'react'
 import { useBookContext } from "../hooks/useBookContext"
 import { useAuthContext } from "../hooks/useAuthContext"
-const apiUrl = process.env.REACT_APP_API_URL;
+
 
 // components
 import BookDetails from '../components/BookDetails'
 import BookForm from '../components/BookForm'
-
+const apiUrl = process.env.REACT_APP_API_URL;
 const Home = () => {
   const { Books, dispatch } = useBookContext()
   const { user } = useAuthContext()
