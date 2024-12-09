@@ -1,7 +1,7 @@
 import { useState } from "react"
 import { useBookContext } from "../hooks/useBookContext"
 import { useAuthContext } from '../hooks/useAuthContext'
-
+const apiUrl = process.env.REACT_APP_API_URL;
 const BookForm = () => {
     const { dispatch } = useBookContext()
     const { user } = useAuthContext()
@@ -24,7 +24,7 @@ const BookForm = () => {
 
         const workout = { title, author, price, yearPublished }
 
-        const response = await fetch('/api', {
+        const response = await fetch(`${apiUrl}/api`, {
             method: 'POST',
             body: JSON.stringify(workout),
             headers: {

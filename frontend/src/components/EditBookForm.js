@@ -9,7 +9,7 @@ const EditBookForm = ({ book, onClose }) => {
   const [author, setAuthor] = useState(book.author);
   const [publishYear, setPublishYear] = useState(book.publishYear);
   const [price, setPrice] = useState(book.price);
-
+  const apiUrl = process.env.REACT_APP_API_URL;
   const handleSubmit = async (e) => {
     e.preventDefault();
 
@@ -20,7 +20,7 @@ const EditBookForm = ({ book, onClose }) => {
 
     const updatedBook = { title, author, publishYear, price };
 
-    const response = await fetch(`/api/books/${book._id}`, {
+    const response = await fetch(`${apiUrl}/api/books/${book._id}`, {
       method: 'PUT',
       body: JSON.stringify(updatedBook),
       headers: {

@@ -3,6 +3,8 @@ import { useBookContext } from '../hooks/useBookContext';
 import { useAuthContext } from '../hooks/useAuthContext';
 import formatDistanceToNow from 'date-fns/formatDistanceToNow';
 
+const apiUrl = process.env.REACT_APP_API_URL;
+
 const BookDetails = ({ Book }) => {
   const { dispatch } = useBookContext()
   const { user } = useAuthContext()
@@ -18,7 +20,7 @@ const BookDetails = ({ Book }) => {
       return
     }
 
-    const response = await fetch('/api/' + Book._id, {
+    const response = await fetch(`${apiUrl}/api` + Book._id, {
       method: 'DELETE',
       headers: {
         'Authorization': `Bearer ${user.token}`
@@ -37,7 +39,7 @@ const BookDetails = ({ Book }) => {
     e.preventDefault();
     if (!user) { return; }
     const updatedBook = { title, author, price, yearPublished };
-    const response = await fetch('/api/' + Book._id, {
+    const response = await fetch(`${apiUrl}/api` + Book._id, {
       method: 'PUT',
       body: JSON.stringify(updatedBook),
       headers: {

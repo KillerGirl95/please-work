@@ -1,6 +1,7 @@
 import { useEffect } from 'react'
 import { useBookContext } from "../hooks/useBookContext"
 import { useAuthContext } from "../hooks/useAuthContext"
+const apiUrl = process.env.REACT_APP_API_URL;
 
 // components
 import BookDetails from '../components/BookDetails'
@@ -13,7 +14,7 @@ const Home = () => {
   useEffect(() => {
     const fetchBooks = async () => {
       try {
-        const response = await fetch('/api', {
+        const response = await fetch(`${apiUrl}/api`, {
           headers: { 'Authorization': `Bearer ${user.token}` },
         })
 

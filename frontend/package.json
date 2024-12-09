@@ -2,7 +2,6 @@
   "name": "frontend",
   "version": "0.1.0",
   "private": true,
-  "proxy": "https://please-work-9eji.onrender.com",
   "dependencies": {
     "cra-template": "1.2.0",
     "date-fns": "^4.1.0",
