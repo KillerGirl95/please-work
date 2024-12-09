@@ -20,7 +20,7 @@ const EditBookForm = ({ book, onClose }) => {
 
     const updatedBook = { title, author, publishYear, price };
 
-    const response = await fetch(`${apiUrl}/api/${book._id}`, {
+    const response = await fetch(`${apiUrl}/api/`+book._id, {
       method: 'PUT',
       body: JSON.stringify(updatedBook),
       headers: {
