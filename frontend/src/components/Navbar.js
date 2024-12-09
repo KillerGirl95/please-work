@@ -19,6 +19,7 @@ const Navbar = () => {
         <nav>
           {user && (
             <div>
+              <Link to="/home" style={{ color: '#1aac83' }}>Home</Link>
               <Link to="/profile">{user.email}</Link>
               <button onClick={handleClick}>Log out</button>
             </div>

@@ -1,0 +1,119 @@
+
+
+.Landing-wrapper{
+    color: white;
+    position: relative;
+    padding: 0;
+    height: 100vh;
+
+}
+
+.hero-Container{
+    display:flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    background-image: 
+        linear-gradient(to right, black, rgba(0, 0, 0, 0)),url('./pngtree-large-library-with-wooden-bookshelves-and-wooden-floors-with-a-dark-image_2642910.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    position: relative;
+
+}   
+
+
+
+.imageContainer>img{
+    height:100%;
+    width: 100%;
+
+}
+
+.heroLeft {
+    gap:3rem;
+}
+
+
+.heroTitle{
+
+    z-index:1;
+    margin: 235px;
+
+}
+.heroTitle>h1{
+    font-weight: 600;
+    font-size: 3.8rem;
+}
+
+
+.buttons>button{
+  background-color: #f10000;
+  border-radius: 8px;
+  box-sizing: border-box;
+  color: #FFFFFF;
+  cursor: pointer;
+  display: inline-block;
+  font-family: "arial";
+  font-size: 14px;
+  font-weight: bold;
+  height: 40px;
+  padding: 10px 16px;
+  position: relative;
+  text-align: center;
+  vertical-align: baseline;
+
+}
+
+.buttons>button:hover{
+  background-color: #ffffff;
+  color:black;
+  height: 50px;
+}
+
+.stats{
+    display: flex;
+    width:100%;
+    justify-content: space-between;
+    gap:3rem;
+
+}
+.stat>:nth-child(1){
+    font-size: 2rem;
+}
+
+.stat>:nth-child(1)>:last-child{
+    color: #f10000;
+}
+.heroDescription {
+
+    margin-top: -50px; 
+    margin-bottom: 100px;
+
+}
+
+.heroDescription>:last-child{
+    font-weight: 600px;
+    font-size: 35px;
+}
+
+
+.heroRight>:last-child{
+    animation: float 2.5s linear infinite;
+    height: 300px;
+    width:300px;
+    margin-bottom: 360px;
+    margin-right: 200px;
+}
+@keyframes float {
+    from{
+        transform: rotate(0deg) translateY(-12px)rotate(0deg);
+    }
+    to{
+        transform: rotate(360deg)translateY(-12px)rotate(-360deg);
+    }
+}
+
+.heroRight{
+    display: flex;
+    align-items: center;
+}
