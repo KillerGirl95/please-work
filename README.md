@@ -180,6 +180,15 @@ Below is a list of the available API endpoints for the MERN Bookstore Applicatio
     "message": "Book deleted successfully"
 }
 ```
+## Live Demo 🚀
+
+Check out the live demo of the MERN Bookstore application in action: [MERN Bookstore Live Demo](https://please-work-1.onrender.com)
+
+⚠️ **Important Note About Loading Time**:
+- This demo is hosted on Render's free tier, which spins down after 15 minutes of inactivity
+- When you click the link, the server needs 30-60 seconds to start up
+- If you see a blank page or loading screen, please wait and refresh the page after 1 minute
+- Subsequent interactions will be much faster once the server is running
 
 ## Acknowledgements
 
